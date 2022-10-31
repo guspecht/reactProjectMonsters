@@ -21,10 +21,16 @@ class App extends Component {
             Hi {this.state.name.firstName} {this.state.name.lastName}, I work at {this.state.company}
           </p>
           <button onClick={() => {
-          this.setState({
-            name: { firstName : 'Anderson', lastName: 'Specht'}
+          this.setState(() => {
+            return {
+              name: { firstName : 'Anderson', lastName: 'Specht'}
+            }
+          }, () => {
+            // RUNS AFTER REACT FINISH WITH THE FRIST FUNCTION
+            console.log(this.state);
           })
-          console.log(this.state)
+          // WILL RUN SYNC 
+          // console.log(this.state)
             }}
           > 
           Change Name
