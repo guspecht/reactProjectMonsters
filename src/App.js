@@ -7,38 +7,32 @@ class App extends Component {
     super();
 
     this.state = {
-      name: {firstName: 'Gustavo', lastName: 'Specht'},
-      company: 'Specht Company'
-    }
+      monsters: [
+        {
+          name: 'Linda'
+        },
+        {
+          name: 'Frank'
+        },
+        {
+          name: 'Jacky'
+        },
+        {
+          name: 'Gustavo'
+        }
+      ]
+    };
   }
 
-  render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hi {this.state.name.firstName} {this.state.name.lastName}, I work at {this.state.company}
-          </p>
-          <button onClick={() => {
-          this.setState(() => {
-            return {
-              name: { firstName : 'Anderson', lastName: 'Specht'}
-            }
-          }, () => {
-            // RUNS AFTER REACT FINISH WITH THE FRIST FUNCTION
-            console.log(this.state);
-          })
-          // WILL RUN SYNC 
-          // console.log(this.state)
-            }}
-          > 
-          Change Name
-          </button>
-        </header>
-      </div>
-      );
-    }
+  render() {
+    return <div className="App">
+      {
+        this.state.monsters.map((monster) => {
+          return <h1>{monster.name}</h1>
+        }) 
+      }
+    </div>;
+  }
 }
 
 export default App;
