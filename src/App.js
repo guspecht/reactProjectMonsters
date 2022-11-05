@@ -33,14 +33,14 @@ class App extends Component {
 
     return <div className="App">
       <input className='search-box' type='search' placeholder='search monsters' onChange={(event) => {
-        
-        let monstersFilter = this.state.monsters.filter((monster) => {
-            return monster.name.includes(event.target.value);
+        const searchWord = event.target.value.toLocaleLowerCase();
+        let filteredMonsters = this.state.monsters.filter((monster) => {
+            return monster.name.toLocaleLowerCase().includes(searchWord);
         });
 
         this.setState(
           () => {
-            return {monsters: monstersFilter}
+            return {monsters: filteredMonsters}
           }
         )
       }}/>
