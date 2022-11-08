@@ -1,20 +1,14 @@
-import { Component  } from "react";
 import "./search-box.styles.css";
 
-class SearchBox extends Component {
-    render()
-    {
-        const { onChangeHandler, placeHolder, className } = this.props;
-        
-        return (
-            <input 
-                className={`search-box ${className}`} 
-                type='search' 
-                placeholder={placeHolder}
-                onChange={onChangeHandler}
-            />
-        )
-    }
-}
+// Implicit return
+// Implicit returns are optional and solely used for shortening the code within a function body.
+const SearchBox = ({ className, placeHolder, onChangeHandler }) => (
+    <input 
+        className={`search-box ${className}`} 
+        type='search' 
+        placeholder={placeHolder}
+        onChange={onChangeHandler}
+    />
+)
 
 export default SearchBox;
